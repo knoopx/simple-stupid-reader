@@ -1,14 +1,9 @@
 import React from 'react'
-import { View, FlatList, StyleSheet } from 'react-native'
+import { FlatList } from 'react-native'
 import Item from './item'
+import ItemSeparator from './item-separator'
 
-class ItemSeparator extends React.PureComponent {
-  render() {
-    return <View style={{ height: StyleSheet.hairlineWidth, backgroundColor: 'gray' }} />
-  }
-}
-
-export default class ItemList extends React.PureComponent {
+export default class ItemList extends React.Component {
   static defaultProps = {
     items: []
   }
@@ -16,9 +11,10 @@ export default class ItemList extends React.PureComponent {
   renderItem = ({ item }) => <Item {...item} />
 
   render() {
-    const { items } = this.props
+    const { items, ...props } = this.props
     return (
       <FlatList
+        {...props}
         ItemSeparatorComponent={ItemSeparator}
         data={items}
         renderItem={this.renderItem}

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
 import { AppRegistry } from 'react-native'
-import App from './app/index.js'
+import App from './src'
 
 AppRegistry.registerComponent('One', () => App)
